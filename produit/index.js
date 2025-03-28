@@ -26,7 +26,7 @@ app.post("/produit/ajouter", async (req, res, next) => {
     .catch(error => res.status(400).json(error));
 });
 
-app.get("/produit/acheter", (req, res, next) => {
+app.post("/produit/acheter", (req, res, next) => {
     const { ids } = req.body;
     Produit.find({_id: { $in: ids } })
         .then(produits => res.status(201).json(produits))
