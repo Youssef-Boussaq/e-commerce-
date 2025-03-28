@@ -4,6 +4,7 @@ const PORT = process.env.PORT_ONE || 4001;
 const mongoose = require("mongoose");
 const Commande = require("./commande");
 const axios = require('axios');
+const isAuthenticated = require("./isAuthenticated")
 
 mongoose.set('strictQuery', true);
 mongoose.connect("mongodb://localhost/commande-service").then(()=>{
@@ -35,12 +36,12 @@ async function httpRequest(ids) {
 }
 
 
-app.post("/commande/ajouter", async (req, res, next) => {
-    const { ids, email_utilisateur } = req.body;
+app.post("/commande/ajouter",isAuthenticated , async (req, res, next) => {
+    const { ids } = req.body;
     httpRequest(req.body.ids).then(total => {
         const newCommande = new Commande({
             produits :ids,
-            email_utilisateur: email_utilisateur,
+            email_utilisateur: req.user.email,
             prix_total: total,
         });
         newCommande.save().then(commande => res.status(201).json(commande))
