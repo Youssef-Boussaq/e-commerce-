@@ -3,3 +3,4 @@ Example of microservices created in Nodejs (Synchronous communication): • Eith
 ![image](https://github.com/user-attachments/assets/771c9ca7-128f-45dc-b1f0-7409a4881afd)
 ![image](https://github.com/user-attachments/assets/dcf32540-9fbf-487b-9663-d429189ed333)
 ![image](https://github.com/user-attachments/assets/cc1236da-0eed-4984-a282-d4ca7b6a2b05)
+![image](https://github.com/user-attachments/assets/60d2f206-f785-42f4-b487-7de2dca75861)
